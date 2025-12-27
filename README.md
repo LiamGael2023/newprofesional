@@ -2,6 +2,8 @@
 
 Sistema completo de gestión para Colegios Profesionales desarrollado con PHP 8.1 MVC puro y MySQL 8.0.
 
+> **🚀 [Guía de Instalación Rápida](INSTALL.md)** | **🔧 [Solución de Problemas](TROUBLESHOOTING.md)**
+
 ## Características Principales
 
 ### Stack Técnico

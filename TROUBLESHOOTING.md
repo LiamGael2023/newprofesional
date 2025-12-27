@@ -141,11 +141,64 @@ php test_connection.php
 ### "Call to undefined function mysql_connect()"
 **Solución:** Asegúrate de tener PHP 8.1+ con extensión PDO MySQL habilitada.
 
+### "Column not found: 1054 Unknown column 'estado' in 'where clause'"
+**Causa:** La base de datos no se importó correctamente o está incompleta. Faltan columnas en las tablas.
+
+**Solución:**
+
+**Opción 1 - Instalador Web (Más fácil):**
+1. Abre en tu navegador: `http://localhost/newprofesional/install_database.php`
+2. Marca la opción "Eliminar base de datos existente"
+3. Click en "Instalar Base de Datos"
+4. Espera a que termine
+
+**Opción 2 - Verificar y reparar:**
+```bash
+# Verificar el estado de la base de datos
+php verify_database.php
+
+# Si hay errores, elimina e importa nuevamente
+mysql -u root -p --port=3307 -e "DROP DATABASE IF EXISTS colegio_profesional;"
+mysql -u root -p --port=3307 < database/schema.sql
+```
+
+**Opción 3 - phpMyAdmin:**
+1. Abre phpMyAdmin
+2. Selecciona la base de datos `colegio_profesional` en el panel izquierdo
+3. Click en "Eliminar" (en la parte superior)
+4. Confirma la eliminación
+5. Click en "Importar"
+6. Selecciona `database/schema.sql`
+7. Click en "Continuar"
+
 ### Página en blanco o error 500
 **Solución:**
 1. Verifica que `mod_rewrite` esté habilitado en Apache
 2. Revisa el archivo `logs/error.log`
 3. Asegúrate de que la carpeta `logs` tenga permisos de escritura
+
+## Herramientas de Diagnóstico
+
+### Verificar puertos MySQL disponibles
+```bash
+php check_mysql.php
+```
+
+### Probar conexión a la base de datos
+```bash
+php test_connection.php
+```
+
+### Verificar estructura de la base de datos
+```bash
+php verify_database.php
+```
+
+### Instalar/Reinstalar base de datos
+Abre en el navegador:
+```
+http://localhost/newprofesional/install_database.php
+```
 
 ## Contacto
 Si sigues teniendo problemas, revisa el archivo `logs/error.log` para más detalles.
