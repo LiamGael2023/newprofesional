@@ -5,11 +5,12 @@
  */
 
 // Configuración de Base de Datos
-define('DB_HOST', 'localhost');
-define('DB_PORT', '3306'); // Puerto de MySQL (cambiar a 3307 si es necesario)
+// IMPORTANTE: Usar 127.0.0.1 en lugar de localhost para conexión TCP/IP
+define('DB_HOST', '127.0.0.1');
+define('DB_PORT', '3306'); // Puerto común: 3306. En XAMPP con Apache puede ser 3307
 define('DB_NAME', 'colegio_profesional');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', ''); // Cambiar si tu MySQL tiene contraseña
 define('DB_CHARSET', 'utf8mb4');
 
 // Configuración de la Aplicación
