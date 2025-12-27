@@ -146,10 +146,16 @@ newprofesional/
    Editar `config/config.php` con tus credenciales:
    ```php
    define('DB_HOST', 'localhost');
+   define('DB_PORT', '3306'); // Cambiar a 3307 si usas XAMPP/WAMP con puerto personalizado
    define('DB_NAME', 'colegio_profesional');
    define('DB_USER', 'root');
    define('DB_PASS', 'tu_password');
    define('APP_URL', 'http://localhost/newprofesional');
+   ```
+
+   **Nota:** Si usas el puerto 3307, asegúrate de importar la base de datos con:
+   ```bash
+   mysql -u root -p --port=3307 < database/schema.sql
    ```
 
 4. **Configurar permisos**

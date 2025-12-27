@@ -6,6 +6,7 @@
 
 // Configuración de Base de Datos
 define('DB_HOST', 'localhost');
+define('DB_PORT', '3306'); // Puerto de MySQL (cambiar a 3307 si es necesario)
 define('DB_NAME', 'colegio_profesional');
 define('DB_USER', 'root');
 define('DB_PASS', '');
