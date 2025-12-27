@@ -1,0 +1,11 @@
+# Denegar acceso a directorios sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteger archivos de configuración
+<FilesMatch "\.(ini|log|conf|sql)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

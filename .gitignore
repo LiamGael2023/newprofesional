@@ -1,0 +1,36 @@
+# Archivos de configuración
+config/config.php
+
+# Logs
+logs/*.log
+!logs/.gitkeep
+
+# Uploads
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Composer
+vendor/
+composer.lock
+
+# Node modules (si se usa en el futuro)
+node_modules/
+
+# Cache
+cache/
+*.cache
+
+# Temporales
+*.tmp
+*.temp
