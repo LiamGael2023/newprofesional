@@ -1,50 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Iniciar Sesión - <?= APP_NAME ?></title>
-    <link rel="stylesheet" href="<?= url('public/css/style.css') ?>">
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet"/>
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-card">
-            <h2>🎓 Colegio Profesional</h2>
-
-            <?php if (isset($errors['login'])): ?>
-                <div class="alert alert-danger">
-                    <?= e($errors['login'][0]) ?>
-                </div>
-            <?php endif; ?>
-
-            <form method="POST" action="<?= url('auth/login') ?>">
-                <div class="form-group">
-                    <label for="username">Usuario</label>
-                    <input type="text" id="username" name="username" class="form-control"
-                           value="<?= e($username ?? '') ?>" required autofocus>
-                    <?php if (isset($errors['username'])): ?>
-                        <small style="color: red;"><?= e($errors['username'][0]) ?></small>
+<body class="d-flex flex-column bg-white">
+    <div class="page page-center">
+        <div class="container container-tight py-4">
+            <div class="text-center mb-4">
+                <a href="." class="navbar-brand navbar-brand-autodark">
+                    <h1>🎓 Colegio Profesional</h1>
+                </a>
+            </div>
+            <div class="card card-md">
+                <div class="card-body">
+                    <h2 class="h2 text-center mb-4">Iniciar Sesión</h2>
+                    <?php if (isset($errors['login'])): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <div class="d-flex">
+                            <div><i class="ti ti-alert-circle icon alert-icon"></i></div>
+                            <div><?= e($errors['login'][0]) ?></div>
+                        </div>
+                    </div>
                     <?php endif; ?>
+                    <form method="POST" action="<?= url('auth/login') ?>" autocomplete="off">
+                        <div class="mb-3">
+                            <label class="form-label">Usuario</label>
+                            <input type="text" class="form-control" name="username" value="<?= e($username ?? '') ?>" placeholder="Ingresa tu usuario" autofocus required>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" placeholder="Ingresa tu contraseña" required>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                        </div>
+                    </form>
                 </div>
-
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password" class="form-control" required>
-                    <?php if (isset($errors['password'])): ?>
-                        <small style="color: red;"><?= e($errors['password'][0]) ?></small>
-                    <?php endif; ?>
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="width: 100%;">
-                    Iniciar Sesión
-                </button>
-            </form>
-
-            <div style="margin-top: 20px; text-align: center; color: #7f8c8d; font-size: 12px;">
-                <p>Usuario por defecto: <strong>admin</strong></p>
-                <p>Contraseña: <strong>admin123</strong></p>
+            </div>
+            <div class="text-center text-muted mt-3">
+                Usuario por defecto: <strong>admin</strong> / Contraseña: <strong>admin123</strong>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
 </body>
 </html>
