@@ -9,3 +9,19 @@
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+# Redireccionar todo a /public/
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # No redireccionar si ya está en /public/
+    RewriteCond %{REQUEST_URI} !^/newprofesional/public/
+
+    # Permitir acceso directo a archivos PHP en la raíz (diagnostico.php, install_database.php, etc)
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME} \.php$
+    RewriteRule ^ - [L]
+
+    # Redireccionar todo lo demás a /public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
