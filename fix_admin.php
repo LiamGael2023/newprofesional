@@ -50,7 +50,7 @@ try {
         echo "<tr><td>Username</td><td>" . htmlspecialchars($admin['username']) . "</td></tr>";
         echo "<tr><td>Email</td><td>" . htmlspecialchars($admin['email']) . "</td></tr>";
         echo "<tr><td>Rol ID</td><td>" . htmlspecialchars($admin['rol_id']) . "</td></tr>";
-        echo "<tr><td>Estado</td><td>" . htmlspecialchars($admin['estado']) . "</td></tr>";
+        echo "<tr><td>Activo</td><td>" . ($admin['activo'] ? 'Sí' : 'No') . "</td></tr>";
         echo "<tr><td>Hash Actual</td><td><code style='font-size: 11px;'>" . htmlspecialchars(substr($admin['password'], 0, 50)) . "...</code></td></tr>";
         echo "</table>";
 
@@ -59,7 +59,7 @@ try {
             $newPassword = $_POST['new_password'];
             $newHash = password_hash($newPassword, PASSWORD_BCRYPT, ['cost' => 10]);
 
-            $updateStmt = $pdo->prepare("UPDATE usuarios SET password = ?, estado = 'ACTIVO' WHERE username = 'admin'");
+            $updateStmt = $pdo->prepare("UPDATE usuarios SET password = ?, activo = 1 WHERE username = 'admin'");
             $updateStmt->execute([$newHash]);
 
             echo "<div class='success'>";
@@ -112,8 +112,8 @@ try {
                 $hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
 
                 $insertStmt = $pdo->prepare("
-                    INSERT INTO usuarios (username, email, password, rol_id, estado)
-                    VALUES (?, ?, ?, ?, 'ACTIVO')
+                    INSERT INTO usuarios (username, email, password, rol_id, activo)
+                    VALUES (?, ?, ?, ?, 1)
                 ");
                 $insertStmt->execute(['admin', 'admin@colegio.pe', $hash, $rol['id']]);
 
