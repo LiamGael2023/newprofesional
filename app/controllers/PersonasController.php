@@ -226,7 +226,7 @@ class PersonasController extends Controller {
     /**
      * Ver detalle de persona
      */
-    public function view($id) {
+    public function show($id) {
         $this->requirePermission('personas');
 
         $persona = $this->personaModel->find($id);

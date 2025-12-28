@@ -78,7 +78,7 @@ $headerActions = '<a href="' . url('colegiados/create') . '" class="btn btn-prim
                             </td>
                             <td>
                                 <div class="btn-group">
-                                    <a href="<?= url('colegiados/view/' . $col['id']) ?>" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
+                                    <a href="<?= url('colegiados/show/' . $col['id']) ?>" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
                                     <a href="<?= url('colegiados/edit/' . $col['id']) ?>" class="btn btn-sm btn-warning"><i class="ti ti-edit"></i></a>
                                 </div>
                             </td>

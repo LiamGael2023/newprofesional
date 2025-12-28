@@ -95,7 +95,7 @@ if ($aportacion['estado'] == 'PENDIENTE' || $aportacion['estado'] == 'VENCIDO') 
                 <div class="mb-2">
                     <div class="text-muted">Código</div>
                     <div>
-                        <a href="<?= url('colegiados/view/' . $aportacion['colegiado_id']) ?>" class="h3 mb-0">
+                        <a href="<?= url('colegiados/show/' . $aportacion['colegiado_id']) ?>" class="h3 mb-0">
                             <?= e($aportacion['codigo_colegiado']) ?>
                         </a>
                     </div>

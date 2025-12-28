@@ -85,7 +85,7 @@ class AportacionesController extends Controller {
     /**
      * Ver detalle de aportación
      */
-    public function view($id) {
+    public function show($id) {
         $this->requirePermission('aportaciones');
 
         $db = Database::getInstance()->getConnection();

@@ -230,7 +230,7 @@ class ColegiadosController extends Controller {
     /**
      * Ver detalle de colegiado
      */
-    public function view($id) {
+    public function show($id) {
         $this->requirePermission('colegiados');
 
         $colegiado = $this->colegiadoModel->getWithPersona($id);
